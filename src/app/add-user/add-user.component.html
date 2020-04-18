@@ -1,0 +1,36 @@
+<h2>Create a user</h2>
+
+
+  <div class="col-md-6">
+    <form #f="ngForm" [formGroup]="addForm">
+
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input formControlName="firstname" placeholder="First Name" name="firstname" class="form-control" id="firstname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input formControlName="lastname" placeholder="Last name" name="lastname" class="form-control" id="lastname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email" required>
+      </div>
+
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" formControlName="gender" id="defaultGroupExample1" value="M" name="gender" checked>
+        <label class="custom-control-label" for="defaultGroupExample1" >Male</label>
+      </div>
+      
+      <!-- Group of default radios - option 2 -->
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" formControlName="gender" id="defaultGroupExample2" value="F" name="gender">
+        <label class="custom-control-label" for="defaultGroupExample2" >Female</label>
+      </div>
+      <br>
+      <button button [disabled]="addForm.invalid" class="btn btn-success" (click)="onSubmit(addForm.value)">Submit</button>
+      <button class="btn btn-danger ml-2 " routerLink="/">Cancel</button>
+    </form>
+  </div>

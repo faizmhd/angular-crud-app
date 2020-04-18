@@ -5,16 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserlistService {
-  items;
   constructor(
     private http: HttpClient,
   ) { }
 
   getAllUsers() {
-    return this.http.get('/assets/users.json');
+    return this.http.get('http://localhost:8000/getUsers');
   }
 
   createUser(user) {
-
+    return this.http.post('http://localhost:8000/addUser', user)
   }
 }
