@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class AddUserComponent implements OnInit {
   addForm;
+  showMsg: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserlistService
@@ -28,9 +29,9 @@ export class AddUserComponent implements OnInit {
 
   onSubmit(user) {
     this.userService.createUser(user).subscribe(res => {
-      console.info(res)
+      this.showMsg = true;
     });
-    this.addForm.reset();
+    
   }
 
 }

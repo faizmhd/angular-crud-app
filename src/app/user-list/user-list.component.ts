@@ -8,7 +8,6 @@ import { UserlistService } from '../userlist.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  // users:any = [];
   users;
 ;
   constructor(
@@ -16,8 +15,16 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.userlistService.getAllUsers().subscribe(users => this.users = users);
     this.users = this.userlistService.getAllUsers();
+  }
+
+  deleteUser(user) {
+    if(confirm("Are you sure to delete this user ?")){
+      this.userlistService.deleteUser(user).subscribe(res => {
+        console.warn(res)
+        window.location.reload()
+      })
+    }
   }
 
 }
