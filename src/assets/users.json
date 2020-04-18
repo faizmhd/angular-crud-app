@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "firstname": "Faizan",
+        "lastname": "Mouhamad",
+        "email": "fmouhamad@hotmail.fr"
+    },
+    {
+        "id": 1,
+        "firstname": "Lebron",
+        "lastname": "James",
+        "email": "lebron.james@gmail.com"
+    },
+    {
+        "id": 2,
+        "firstname": "Peter",
+        "lastname": "Pan",
+        "email": "peter.pan@gmail.com"
+    }
+]

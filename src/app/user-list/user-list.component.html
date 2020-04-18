@@ -1,0 +1,28 @@
+<div class="usercontact-list">  
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class=" btn btn-primary " >Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger ml-2 " >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
