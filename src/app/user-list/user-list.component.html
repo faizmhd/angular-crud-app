@@ -2,7 +2,7 @@
     <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Id</th>
+        <th>Gender</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
@@ -11,8 +11,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
+      <tr *ngFor="let user of users | async">
+        <td>
+          <img *ngIf="user.gender === 'M';" src="../../assets/images/man.png">
+          <img *ngIf="user.gender === 'F';" src="../../assets/images/woman.png">
+        </td>
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>
         <td>{{ user.email }}</td>
