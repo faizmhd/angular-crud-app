@@ -1,27 +1,26 @@
-# AngularCrudApp
+# Angular CRUD App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+This application was developped using [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1 and aims to learn this framework by creating a CRUD (Create, Read, Update, Delete) app.
 
-## Development server
+## Commands to run the application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In the project directory, you can :
 
-## Code scaffolding
+* Use [npm](https://nodejs.org/en/download/) package manager:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+# First, run the backend
+cd backend/
+npm install
+npm start
+# Then, run the frontend
+cd ../
+npm install
+npm start
+```
 
-## Build
+## Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Angular CLI
+* Node JS (Express JS)
+* Mongo DB
