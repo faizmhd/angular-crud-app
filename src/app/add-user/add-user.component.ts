@@ -12,9 +12,12 @@ import {Router} from "@angular/router";
 export class AddUserComponent implements OnInit {
   addForm;
   showMsg: boolean = false;
+  showErr: boolean = false;
+  res_message = null;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserlistService
+    private userService: UserlistService,
+    private router: Router
   ) { 
     this.addForm = this.formBuilder.group({
       'lastname' : '',
@@ -28,10 +31,16 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit(user) {
+    this.showMsg = false;
+    this.showErr = false;
     this.userService.createUser(user).subscribe(res => {
       this.showMsg = true;
+      this.res_message = res;
+      setTimeout(() => {this.router.navigate(['/'])}, 3000)
+    }, (err) => {
+      this.showErr = true;
+      this.res_message = err.error;
     });
-    
   }
 
 }
