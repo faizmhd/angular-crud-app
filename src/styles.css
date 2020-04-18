@@ -18,8 +18,12 @@
     align-items: center;
   }
   
-  app-top-bar h1 {
+  app-top-bar h3 {
     color: white;
     margin: 0;
+  }
+
+  td img {
+    width: 40px;
   }
   
