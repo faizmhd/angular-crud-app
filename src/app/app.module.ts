@@ -10,6 +10,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserListComponent } from './user-list/user-list.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     TopBarComponent,
     UserListComponent,
     AddUserComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
