@@ -8,13 +8,14 @@ import { UserlistService } from '../userlist.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users;
+  users:any = [];
+;
   constructor(
     private userlistService : UserlistService,
   ) { }
 
   ngOnInit(): void {
-    this.users = this.userlistService.getAllUsers();
+    this.userlistService.getAllUsers().subscribe(users => this.users = users);
   }
 
 }
