@@ -45,8 +45,30 @@ function createUser(user) {
     })
 }
 
+function deleteUser(email) {
+    return new Promise((resolve, reject) => {
+        getUser(email)
+            .then(res => {
+                if (res) {
+                    User.deleteOne({ "email": email })
+                        .then(result => {
+                            resolve(result);
+                        })
+                        .catch(err => {
+                            reject(err);
+                        })
+                }
+                else {
+                    reject('User not exist')
+                }
+            })
+
+    })
+}
+
 module.exports = {
     getUser,
     getUsers,
-    createUser
+    createUser,
+    deleteUser
 }
