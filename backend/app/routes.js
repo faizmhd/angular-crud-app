@@ -1,5 +1,6 @@
 let userService = require('./services/user.services');
-let mongoose = require('mongoose')
+let mongoose = require('mongoose');
+let firebase = require("firebase/app");
 
 module.exports = function (app) {
   
@@ -63,6 +64,26 @@ module.exports = function (app) {
         })
         .catch(err => {
             res.status(400).json(err);
+        })
+    })
+
+    app.post('/signUpFirebase', (req, res) => {
+        firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+        .then(result => {
+            res.status(200).json("Firebase user was successfully created")
+        })
+        .catch(error => {
+            res.status(400).json(error.message)
+        })
+    });
+
+    app.get('/loginFirebase', (req, res) => {
+        firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+        .then(result => {
+            res.status(200).json("Firebase user are successfully logged in")
+        })
+        .catch(error => {
+            res.status(400).json(error.message)
         })
     })
 }
