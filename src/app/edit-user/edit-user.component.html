@@ -1,4 +1,7 @@
-<h2>Edit a user</h2>
+<div class='title_progress'>
+  <h2>Edit a user</h2>
+  <mat-progress-bar class="spinner_progress" mode="query" *ngIf="showMsg"></mat-progress-bar>
+</div>
 
 <div class="alert alert-success" role="alert" *ngIf="showMsg">
   <h4 class="alert-heading">{{res_message}}</h4>
