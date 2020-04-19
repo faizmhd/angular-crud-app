@@ -55,7 +55,6 @@ module.exports = function (app) {
     });
 
     app.put('/updateUser', (req, res) => {
-        console.log(req.body)
         let _id = mongoose.Types.ObjectId(req.body.id);
         userService
         .updateUser(req.body.user, _id)
