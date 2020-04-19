@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global Styles */
 
-
+table {
+  width: 100%;
+}
   
   .container {
     display: inline-grid;
@@ -27,11 +29,9 @@
     width: 40px;
   }
 
-  #searchbar {
-    display: flex;
+  #filter_field {
+    margin-left: 100px;
+    width: 300px;
   }
-  
-  #search_bar {
-    float: right;
-    margin-left: 10px;
-  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
