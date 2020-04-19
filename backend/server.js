@@ -23,6 +23,9 @@ mongoose.connect(configDB.url, {useNewUrlParser: true, useUnifiedTopology: true}
     console.log(e);
   });
 
+// Init Firebase
+require('./config/firebase');
+
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev')); 
