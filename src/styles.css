@@ -26,3 +26,12 @@
   td img {
     width: 40px;
   }
+
+  #searchbar {
+    display: flex;
+  }
+  
+  #search_bar {
+    float: right;
+    margin-left: 10px;
+  }

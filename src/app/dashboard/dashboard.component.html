@@ -1,3 +1,8 @@
+<div id='searchbar'>
 <a class="btn btn-success ml-2" [routerLink]="['/addUser']">New</a>
+<div class="md-form mt-0" id='search_bar'>
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search" (keyup)="filter_name($event)">
+  </div>
+</div>
     <hr>
 <app-user-list></app-user-list>

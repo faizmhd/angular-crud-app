@@ -1,5 +1,5 @@
 <div class="usercontact-list">  
-    <table class="table table-bordered">
+    <table class="table table-bordered" >
     <thead>
       <tr>
         <th>Gender</th>
@@ -10,7 +10,7 @@
         <th>Delete</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id='user-table-body'>
       <tr *ngFor="let user of users | async">
         <td>
           <img *ngIf="user.gender === 'M';" src="../../assets/images/man.png">
