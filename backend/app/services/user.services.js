@@ -1,4 +1,5 @@
 let User = require('../models/user');
+let firebase = require("firebase/app");
 
 function getUser(email) {
     return new Promise((resolve, reject) => {
@@ -95,11 +96,37 @@ function updateUser(user, id){
     })
 }
 
+function signIn(email, password){
+    return new Promise((resolve, reject) => {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+            resolve("Firebase user was successfully logged in");
+        })
+        .catch(error => {
+            reject(error.message)
+        })
+    })
+}
+
+function signUp(email, password){
+    return new Promise((resolve, reject) => {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            resolve("Firebase user was successfully created")
+        })
+        .catch(error => {
+            reject(error.message)
+        })
+    })
+}
+
 module.exports = {
     getUser,
     getUsers,
     createUser,
     deleteUser,
     getUserById,
-    updateUser
+    updateUser,
+    signIn,
+    signUp
 }

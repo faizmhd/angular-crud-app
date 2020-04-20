@@ -1,6 +1,5 @@
 let userService = require('./services/user.services');
 let mongoose = require('mongoose');
-let firebase = require("firebase/app");
 
 module.exports = function (app) {
   
@@ -13,7 +12,7 @@ module.exports = function (app) {
     app.post('/addUser', (req, res) => {
         userService
         .createUser(req.body)
-        .then(result => {
+        .then(() => {
             res.status(200).json("User has successfully created");
         })
         .catch(err => {
@@ -35,7 +34,7 @@ module.exports = function (app) {
     app.delete('/deleteUser', (req, res) => {
         userService
         .deleteUser(req.body.user.email)
-        .then(result => {
+        .then(() => {
             res.status(200).json("User was successfully deleted");
         })
         .catch(err => {
@@ -59,31 +58,35 @@ module.exports = function (app) {
         let _id = mongoose.Types.ObjectId(req.body.id);
         userService
         .updateUser(req.body.user, _id)
-        .then(result => {
+        .then(() => {
             res.status(200).json('User was successfully updated');
         })
         .catch(err => {
             res.status(400).json(err);
         })
     })
-
-    app.post('/signUpFirebase', (req, res) => {
-        firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+    // Register on Firebase
+    app.post('/signup', (req, res) => {
+        const { email, password } = req.body;
+        userService
+        .signUp(email, password)
         .then(result => {
-            res.status(200).json("Firebase user was successfully created")
+            res.status(200).json(result);
         })
-        .catch(error => {
-            res.status(400).json(error.message)
+        .catch(err => {
+            res.status(400).json(err);
         })
     });
-
-    app.get('/loginFirebase', (req, res) => {
-        firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+    // Sign in with Firebase Auth
+    app.post('/signin', (req, res) => {
+        const { email, password } = req.body;
+        userService
+        .signIn(email, password)
         .then(result => {
-            res.status(200).json("Firebase user are successfully logged in")
+            res.status(200).json(result);
         })
-        .catch(error => {
-            res.status(400).json(error.message)
+        .catch(err => {
+            res.status(400).json(err);
         })
     })
 }
