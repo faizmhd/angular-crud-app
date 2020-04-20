@@ -13,14 +13,13 @@ let helmet = require('helmet');
 const port = process.env.SERVER_PORT || 8000;
 const title = process.env.TITLE || 'Backend';
 
-// DB config
+// Mongo DB config
 let configDB = require('./config/database.js');
 mongoose.connect(configDB.url, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     console.log("Connected to mongoDB");
   })
   .catch((e) => {
     console.log("Error while DB connecting");
-    console.log(e);
   });
 
 // Init Firebase
